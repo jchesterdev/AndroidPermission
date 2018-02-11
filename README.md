@@ -34,7 +34,19 @@ How to use this library
     }
 ```
 
-4. Call `permission.executeWithPermission`
+4. Add `permission.onRequestPermissionResult`
+```java
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        
+        // Do not forget to add this.
+        permission.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+```
+
+5. Call `permission.executeWithPermission`
 ```java
     permission.executeWithPermission(this, new Permission.PermissionCallback() {
         
@@ -50,18 +62,6 @@ How to use this library
             permissionStatus.setText("Denied permissions: " + permission.getDeniedPermissions());
         }
    });
-```
-
-5. Add `permission.onRequestPermissionResult`
-```java
-    @Override
-    public void onRequestPermissionsResult(
-            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        
-        // Do not forget to add this.
-        permission.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
 ```
 
 6. Add permissions in manifest.xml

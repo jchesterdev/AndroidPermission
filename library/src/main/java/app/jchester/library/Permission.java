@@ -34,7 +34,7 @@ public class Permission {
         void onPermissionsDenied(Permission permission);
     }
 
-    public Permission(@NonNull Context context, @NonNull String[] requiredPermissions) {
+    public Permission(Context context, String[] requiredPermissions) {
         mContext = context;
         mPermissions = verifyPermissions(context, requiredPermissions);
         mRequestCode = (short) mIdGenerator.nextInt(Short.MAX_VALUE + 1);

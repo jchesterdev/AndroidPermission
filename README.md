@@ -50,7 +50,7 @@ How to use this library
 ```java
     permission.executeWithPermission(this, new Permission.PermissionCallback() {
         
-        // This will be called if ALL of your permissions are granted
+        // This will be called if ALL of your permissions are granted or already granted
         @Override
         public void onPermissionsGranted(Permission permission) {
             permissionStatus.setText("All permissions are granted");
